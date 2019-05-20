@@ -3,6 +3,8 @@ layout: single
 classes: wide
 title:  "Welcome to my blog - the first post"
 date:   2019-05-20 19:20:00 +0200
+category: Misc
+tags: [welcome, misc]
 ---
 
 Hello and welcome. It's nice to see that you found your way to my blog.
