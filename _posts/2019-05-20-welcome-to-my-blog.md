@@ -14,7 +14,7 @@ While I already got some sort of blog ([a Telegram channel](https://t.me/C0D3BA5
 
 Let's see how this will work out. I won't publish articles after a certain schedule, so be surprised.
 
-If you have any questions, feel free to [contact me on Telegram](). Thanks for reading, see you around.
+If you have any questions, feel free to [contact me on Telegram](https://t.me/d_Rickyy_b). Thanks for reading, see you around.
 
 Greetings,  
 Rico
