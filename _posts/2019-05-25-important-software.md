@@ -36,7 +36,7 @@ It's quite annoying to keep your software up-2-date. Often you need to open the 
 - [WinSCP](https://winscp.net/eng/docs/lang:de) - Filetransfer software (supports `sftp`, `scp`, `ftp`, `webdav`, `Amazon S3`)
 - [FileZilla](https://filezilla-project.org/) - Very popular `ftp` software
 - [JDownloader](http://jdownloader.org/) - Downloader software which enables you to download tons of files automatically (that website only supports http!)
-- [7zip](https://7-zip.org/) - Open Source archive manager
+- [7-Zip](https://7-zip.org/) - Open Source archive manager
 - [WinRAR](https://www.win-rar.com) - Closed Source archive manager
 - [HJSplit](http://www.hjsplit.org/) - Tool for splitting files up into several smaller files
 
