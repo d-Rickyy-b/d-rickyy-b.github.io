@@ -38,27 +38,27 @@ A good friend of mine just recently got into game hacking. More specifically int
 
 And yes, before you ask, there are already some parsers for that file format out there. But most of them either work very hacky or are quite unreliable. Some of them even use Regex to parse those files, which you should **never ever** do, but we'll get to that later!
 
-So given these circumstances, I decided to build my own parser for those files.
+After said friend told me about the challenge I thought it could be a funny challenge and I wanted to help out. So given these circumstances, I decided to build my own parser for those files.
 
-One sidenote right at the start: This all might be shrinked by a very large portion because I did not want to write such a huge blog post, so if you are new to this and don't understand all the things, no worries - the problem is not you.
+*One sidenote right at the start: The content in this blog post might be shrinked a lot because I did not want to write a boring long text, so if you are new to this and don't understand all the things, no worries - the problem is not you. Also I might reduce statements to their core which also means that stuff might not be as accurate as it could be. If you know better, please don't kill me, this article is not meant for parser developers.*
 
 # Theoretical background
-In order to build your own parser you need a bit of background knowledge. I am going to make this short, because you can use 2 full years in university studying that stuff. During my computer science studies I had a lecture called something like "compiler design", in which we learned how compilers work and how to build one. For everyone not knowing what a compiler is: It's the tool (or a collection of tools) which creates an executable program out of your source code. And one of the first steps of a compiler is to read the file (where the code resides in) and parse it. Now how does it do that?
+In order to build your own parser you need a bit of background knowledge. I trying to make this short, because you can use 2 full years in university studying that stuff. During my computer science studies I had a lecture called something like "compiler design", in which we learned how compilers work and how to build one. Back then I did not like that lecture because it was very dry and very theoretical, but now I picked up the interest because there are practical use cases to use it for. For everyone not knowing what a compiler is: Simply said it's the tool (or a collection of tools) which creates an executable program out of your source code. And one of the first steps of a compiler is to read the file (where the code resides in) and parse it. Now how does it do that?
 
 ## Grammar
-You cannot parse anything if you don't know which rules your data (file, source code, etc.) is following. The grammar, which literally means the same for spoken languages and programming languages, defines the order in which certain words or rather "tokens" are allowed in. The other way around you can say that a grammar produces a language. Using the rules of the grammar you can create sentences of a language the grammar describes.
+You cannot parse anything if you don't know which rules your language (file, source code, etc.) is following. The grammar, which literally means the same for spoken languages and programming languages, defines the order in which certain words or rather "tokens" are allowed in. The other way around you can say that a grammar produces a language. Using the rules of the grammar you can create sentences of the language that grammar describes.
 
-Here is a very easy example:
+Here is a very easy example code written in Python:
 
 ```python3
 if value == 3:
     print("Value is 3")
 ```
 
-That's a small piece of python code. Python has certain syntax rules such as:
-- The context for the if condition must be indented 4 spaces (or 1 tab).
-- After the keyword print there must be a `(` and a `)` which contain either a string or an expression
-- In the if clause there must be any kind of expression or variable to check on. In our case it's a comparison
+Using this example, we can see that Python has certain syntax rules. We can list some of them in natural language, such as:
+- The context for the if-clause must be indented 4 spaces (or 1 tab).
+- After the keyword `print` there must be two parentheses, `(` and `)`, which surround either a string or an expression
+- In the condition of our if-clause there must be any kind of expression or variable to check on. In our case it's a comparison (`value == 3`)
 - ...
 
 Those examples above are only a very small set of informal rules which define how python programs must be built. If you break some of those rules, the python interpreter/compiler will tell you that it can't understand what you have written. That's when you get syntax errors. Take the following code for example. We put an assignment into the condition and the python compiler tells us that it does not know how to interpret this line of code.
@@ -72,14 +72,14 @@ SyntaxError: invalid syntax
 ```
 
 ### Types of grammars
-You might have heard of it - there are different types of grammars. And that's also the reason why you CAN'T and SHOULDN'T (and imho MUSTN'T) parse HTML or JSON with RegEx.
+You might or might not have heard of it - there are different types of grammars. And that's also the reason why you CAN'T and SHOULDN'T (and imho MUSTN'T 😄) parse HTML or JSON with RegEx.
 The different types of grammar are described in the [Chomsky hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy). It contains 4 different types of grammars. They are labeled type-0 to type-3 where type-3 is the "least complex" and type-0 is the "most complex" one. A type-0 grammar contains all the grammars described by type 1, 2, and 3. A type-1 grammar contains all the grammars described by type 2 and 3. And so on.
 
-Type-0 grammar is called "recursively enumerable", type-1 grammar is called "context-sensitive", type-2 grammar is called "context-free" and type-4 grammar is called "regular". And as that name might already have spoilered... you can only parse type-4 grammar with Regular Expressions. As I already wrote twice: that's the reason you can't parse HTML/JSON with it, because those languages use type-2 grammars. If that still does not convince you, check out this legendary [stackoverflow answer](https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags), it's really worth it.
+**Type-0** grammar is called "recursively enumerable", **type-1** grammar is called "context-sensitive", **type-2** grammar is called "context-free" and **type-3** grammar is called "regular". And as that name might already have spoilered... you can only parse type-3 grammar with Regular Expressions. As I already wrote twice: that's the reason you can't parse HTML/JSON with it, because those languages use type-2 grammars. If that still does not convince you, check out this legendary [stackoverflow answer](https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags), it's really worth it.
 
 ### (E)BNF
 To describe a grammar, we can use the [(extended) Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) or for short "EBNF".
-EBNF is somewhat of a description language for grammar. It consists of "terminal symbols" which are literal characters, "nonterminal symbols" which can be seen as "variables" and "production rules", with which you can "produce" data allowed by the grammar. But apart from producing data you can also verify data with production rules.
+EBNF is somewhat of a description language for grammar. It consists of "terminal symbols" which are literal characters, "nonterminal symbols" which can be seen as "variables", and "production rules" with which you can "produce" data allowed/accepted by the grammar. But apart from producing data you can also verify the grammar of a language with production rules. And to throw that in right at the start: Yes (e)BNF is used broadly. I would say that you find it in **any** language/grammar description documentation. For example in the [Python Language Reference documentation](https://docs.python.org/3/reference/expressions.html).
 
 A very simple set of EBNF rules could be:
 ```
@@ -87,13 +87,14 @@ digit_excluding_zero = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
 digit                = "0" | digit_excluding_zero ;
 natural_number       = digit_excluding_zero, { digit } ;
 ```
-We can now replace any nonterminal (such as "digit_excluding_zero") with the content of its definition. It's similar to the concept of variables in programming languages-
-As you can see, `digit_excluding_zero` can contain any digit from 1 to 9, because the `|` means "or". `digit` can contain any digit from 0 to 9. `natural_number` can contain any non-zero digit in the beginning and any amount of any digit (including zero) following. That's because of the curly braces - they mean something like "this token can be there 0, 1 or unlimited times. This example was taken from the [EBNF Wikipedia page](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form#Basics).
+We can now replace any nonterminal (such as "digit_excluding_zero") with the content of its definition. It's similar to the concept of variables in programming languages.
+As you can see, `digit_excluding_zero` can contain any one digit from 1 to 9, because the `|` means "or". `digit` can contain any one digit from 0 to 9. `natural_number` can contain any non-zero digit in the beginning and any amount of any digit (including zero) following. That's because of the curly braces - they mean something like "this token can repeatet 0, 1 or unlimited times". The example above was taken from the [EBNF Wikipedia page](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form#Basics).
 
-So that's basically how we describe our grammar. EBNF is not really complex, but I could write about it for hours, and to prevent me from doing it, I am going to cut short here. Go to the wikipedia page if you feel the need to read up on it.
+So that's basically how we describe our grammar. EBNF is not really complex, but I could write about it for hours, and to prevent me from doing so, I am going to cut short here. Go to the wikipedia page if you feel the need to read up on it.
 
 # Building your own parser
-Well this heading does not fit a hundred percent to what comes next. I was not actually building a parser. Why? Because it takes quite some work to build a custom parser yourself all from scratch. That's why I used [LARK](https://github.com/lark-parser/lark) which is a parser generator. It takes a grammar written in a language **very similar** to EBNF and creates a parser that matches that exact grammar.
+Well this heading doesn't fit a hundred percent to what comes next. I was not actually building a whole parser myself. Why? Because it takes quite some work to build a custom parser yourself all from scratch. That's why I used [LARK](https://github.com/lark-parser/lark) which is a parser/[parser generator](https://en.wikipedia.org/wiki/Compiler-compiler). It takes a grammar written in a language **very similar** to EBNF and creates a parser that matches that exact grammar.
+Is that "cheating"? It might look like that but it's absolutely not. Even professionals use parser generators.
 
 First and foremost we import certain predefined nonterminals and set the policy to import all whitespace characters, which makes it easier for us to parse the file later on, since we can ignore all whitespaces.
 
@@ -176,9 +177,12 @@ This works pretty well so far. No shift/reduce conflicts, because with a lookahe
 
 # Result
 
+Now when we parse the file, LARK will generate an [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST) for us. That tree contains the whole file with the parsed tokens as leaves in a certain order. Depending on the type of parser your AST will look different. Based on that AST we can transform the data into any format we want to. I decided to write my own `Transformer` class called `TreeToJson`, which extends the LARK Transformer class, which is used to transform an AST into a custom data format. But if you know how the AST data structure looks like, you can use your own implementation to do anything with that data.
+After transforming the data inside the AST we got a useful data format. We can use that to e.g. create json out of it. But it's not limited to json, we can basically create any data format, since we can define the data structure now.
+
 ![Screenshot of the parsed json result](/assets/img/2019-11-27-writing-a-parser/parsing-output-json.png)
 
-And yea, that was the result. The python script ran about 4-5 seconds and printed nice, JSON-formatted data which can be used to further work with.
+And yea, that was the result. The python script with the LALR parser ran about 4-5 seconds and printed nice, JSON-formatted data which can be used to further work with it.
 
 If you want to play around with the parser and stuff, I created a GitHub Gist for this very small project. Feel free to check it out: 
 [https://gist.github.com/d-Rickyy-b/ce6edfd12788b821839305eaeb5b18ac](https://gist.github.com/d-Rickyy-b/ce6edfd12788b821839305eaeb5b18ac)
