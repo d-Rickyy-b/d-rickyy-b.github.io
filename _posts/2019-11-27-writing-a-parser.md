@@ -57,7 +57,7 @@ if value == 3:
 
 Using this example, we can see that Python has certain syntax rules. We can list some of them in natural language, such as:
 - The context for the if-clause must be indented 4 spaces (or 1 tab).
-- After the keyword `print` there must be two parentheses, `(` and `)`, which surround either a string or an expression
+- After the keyword `print` there must be two parentheses, `(` and `)`, which surround an expression (string, list, object, variable, etc.)
 - In the condition of our if-clause there must be any kind of expression or variable to check on. In our case it's a comparison (`value == 3`)
 - ...
 
