@@ -181,6 +181,6 @@ This works pretty well so far. No shift/reduce conflicts, because with a lookahe
 And yea, that was the result. The python script ran about 4-5 seconds and printed nice, JSON-formatted data which can be used to further work with.
 
 If you want to play around with the parser and stuff, I created a GitHub Gist for this very small project. Feel free to check it out: 
-https://gist.github.com/d-Rickyy-b/ce6edfd12788b821839305eaeb5b18ac
+[https://gist.github.com/d-Rickyy-b/ce6edfd12788b821839305eaeb5b18ac](https://gist.github.com/d-Rickyy-b/ce6edfd12788b821839305eaeb5b18ac)
 
 Since this topic is quite hard to understand, please don't worry if you did not get everything. I'll be glad to help you out on your questions. Feel free to contact me. Also make sure to leave me comments and annotations on this blog post!
