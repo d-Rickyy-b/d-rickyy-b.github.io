@@ -132,7 +132,7 @@ list : listitem [listitem*]
 %ignore WS
 ```
 
-That describes our syntax pretty well. There is only a very small issue: The grammar is not parsible by a "Look-Ahead LR parser" (LALR parser). You may ask "wtf is a LALR parser" and "why can't it parse the file given our grammar?" and both are adequate questions. I could give you an answer, but for that we need to go deeper into parsing. Especially into the parser stack and shift/reduce conflicts. Please bear with me - a very very short digression.
+That describes our syntax pretty well. There is only a very small issue: The grammar is not parsible by a "Look-Ahead LR parser" (LALR parser). You may ask "wtf is a LALR parser" and "why can't it parse the file given our grammar?" and both are adequate questions. I could give you an answer, but for that we need to go deeper into parsing. Especially into the parser stack and shift/reduce conflicts. Please bear with me - a very very short digression. This topic is not easy and you might want to check [some tutorial](https://www.tutorialspoint.com/compiler_design/compiler_design_types_of_parsing.htm) or other literature on the topic if you are trying to understand everything. If you just care about the result and the code, you can jump down to the bottom of the post.
 
 
 ## How parsers work - short digression
