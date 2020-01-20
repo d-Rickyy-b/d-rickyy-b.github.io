@@ -1,12 +1,14 @@
 ---
 layout: single
 classes: wide
-title:  "RoboTheifClient - a Telegram session stealer"
+title:  "RoboTheifClient - A Telegram session stealer"
 date:   2020-01-20 21:00:00 +0200
 ---
 
 While scrolling through a Telegram group, I recently (late december 2019) found a tool that claimed to add fake followers to your Telegram channels. That was a pretty provoking claim, so I downloaded the tool and analyzed it. Here's what I found.
 
+
+# Analysis of the file
 At first we can check the file type and we immediately notice that it's a .Net binary. That's awesome, because you can get pretty much decompile the source code of a binary with tools such as `.NET Reflector` and hence can easily check what that binary is doing.
 
 ```bash
@@ -76,7 +78,7 @@ Well, obviously we can now report the bot and the user to [@NoToScam](https://t.
 
 It seems that by now the session stealer was already open-sourced by the creator. At least there is a GitHub repository, where you can find the malware: https://github.com/MrModed/RoboThief-Telegram-Session-Stealer.
 
-### YARA rule for RoboThiefClient
+# YARA rule for RoboThiefClient
 After that analysis I wanted to be able to find other occurrances of that malware in a binary, so I wrote my first real [Yara](https://github.com/VirusTotal/yara) rule. I didn't have any (real-world) experiences with yara yet.
 
 ```yara
@@ -104,13 +106,14 @@ rule RoboThiefClient {
 That rule uses some patterns such as the hardcoded name of the zip file `MT.zip` and names such as `tdata` or even the malware's own name "RoboThiefClient". But only if the file starts with the typical MZ header and has a filesize of below 1 MB. I also implemented a regex scan for a (API) bot token which can use up a lot of ressources when scanning large files. Since we limited the filesize this should be okay to use.
 
 
-### Conclusion
+# Conclusion & How to prevent
 As always please be aware that every piece of software you run on your computer can potentially be malware. Don't click on random stuff you get sent on the internet, even if it's a friend sending it to you. And never believe stuff that promises you to give you stuff for free. Or which promises you to get instantly more followers.
 
 I hope you enjoyed this short, quick-and-dirty analysis.
 
 
-### References:
+# References:
 - [Virustotal Sample 1](https://www.virustotal.com/gui/file/916db604bd5a3132cffc4c7a266585579fc9a5838ec0eba11f3532de5902c901/detection)
 - [Virustotal Sample 2](https://www.virustotal.com/gui/file/2ad784eeb5525723162c521b9aefac965578d77d6269619abfb8656c25e9c48b/detection)
 - [RoboThiefClient - GitHub Repo](https://github.com/MrModed/RoboThief-Telegram-Session-Stealer)
+- ⚠️ [Archive of the malicious files I analyzed](/assets/files/2020-01-20-telegram-session-stealer/RoboThiefClient.zip) - password is `infected`
