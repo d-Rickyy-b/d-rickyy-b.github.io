@@ -18,7 +18,7 @@ apiadder.exe: PE32 executable (console) Intel 80386 Mono/.Net assembly, for MS W
 
 So next up we load that binary into `.NET Reflector` and see what we got there. At first it checks if any arguments are passed to the binary. If there are no arguments, the binary will create a new process from the binary itself with "MM" as the arguments and `Hidden` WindowStyle, that hides the processes window, making it invisible for a normal user. After that happened, the initial program kills itself. The new process obviously got one argument passed, so it executes the `if` branch. And that's where things start to become interesting.
 
-```C#
+```Cs
 private static void Main(string[] args)
 {
     if (args.Count<string>() != 0)
