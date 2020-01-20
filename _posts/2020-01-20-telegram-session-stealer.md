@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title:  "RoboTheifClient - A Telegram session stealer"
+title:  "RoboThiefClient - A Telegram session stealer"
 date:   2020-01-20 21:00:00 +0200
 category: Malware Analysis
 tags: [malware, telegram, session stealer, .Net]
