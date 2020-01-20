@@ -109,6 +109,10 @@ That rule uses some patterns such as the hardcoded name of the zip file `MT.zip`
 # Conclusion & How to prevent
 As always please be aware that every piece of software you run on your computer can potentially be malware. Don't click on random stuff you get sent on the internet, even if it's a friend sending it to you. And never believe stuff that promises you to give you stuff for free. Or which promises you to get instantly more followers.
 
+We still don't know what these guys are doing with those stolen sessions then. I would bet that those are used for spreading spam in the name of another user. But there is a way to protect bad guys from stealing your session: Make sure to enable "Local passcode" in the Telegram settings > Privacy and Security > Local passcode. That setting uses your passcode to encrypt the session data in tdata. That way the current implementation of the malware just sends the encrypted data to the adversary. Without the passcode they are pretty lost.
+
+![Enable local passcode in Telegram](/assets/img/2020-01-20-telegram-session-stealer/telegram-passcode.png)
+
 I hope you enjoyed this short, quick-and-dirty analysis.
 
 
