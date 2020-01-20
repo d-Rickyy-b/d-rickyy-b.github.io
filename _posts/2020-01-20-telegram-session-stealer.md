@@ -3,6 +3,8 @@ layout: single
 classes: wide
 title:  "RoboTheifClient - A Telegram session stealer"
 date:   2020-01-20 21:00:00 +0200
+category: Malware Analysis
+tags: [malware, telegram, session stealer, .Net]
 ---
 
 While scrolling through a Telegram group, I recently (late december 2019) found a tool that claimed to add fake followers to your Telegram channels. That was a pretty provoking claim, so I downloaded the tool and analyzed it. Here's what I found.
