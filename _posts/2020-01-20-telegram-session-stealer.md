@@ -79,7 +79,10 @@ Well, obviously we can now report the bot and the user to [@NoToScam](https://t.
 It seems that by now the session stealer was already open-sourced by the creator. At least there is a GitHub repository, where you can find the malware: [RoboThief-Telegram-Session-Stealer](https://github.com/MrModed/RoboThief-Telegram-Session-Stealer).
 
 # YARA rule for RoboThiefClient
-After that analysis I wanted to be able to find other occurrances of that malware in a binary, so I wrote my first real [Yara](https://github.com/VirusTotal/yara) rule. I didn't have any (real-world) experiences with yara yet.
+After that analysis I wanted to be able to find other occurrances of that malware in a binary, so I wrote my first real [YARA](https://github.com/VirusTotal/yara) rule. I didn't have any (real-world) experiences with YARA yet. If you don't know YARA yet, it's best to read the description text on the [YARA project website](https://virustotal.github.io/yara/):
+
+*YARA is a tool aimed at (but not limited to) helping malware researchers to identify and classify malware samples. With YARA you can create descriptions of malware families (or whatever you want to describe) based on textual or binary patterns. Each description, a.k.a rule, consists of a set of strings and a boolean expression which determine its logic.*
+
 
 ```yara
 rule RoboThiefClient {
