@@ -76,7 +76,7 @@ $ curl https://api.telegram.org/bot<token>/getChat?chat_id=535163757
 
 Well, obviously we can now report the bot and the user to [@NoToScam](https://t.me/notoscam) on Telegram or use the in-app report feature to report the bot. That way they *might* be stopped from scamming users.
 
-It seems that by now the session stealer was already open-sourced by the creator. At least there is a GitHub repository, where you can find the malware: https://github.com/MrModed/RoboThief-Telegram-Session-Stealer.
+It seems that by now the session stealer was already open-sourced by the creator. At least there is a GitHub repository, where you can find the malware: [RoboThief-Telegram-Session-Stealer](https://github.com/MrModed/RoboThief-Telegram-Session-Stealer).
 
 # YARA rule for RoboThiefClient
 After that analysis I wanted to be able to find other occurrances of that malware in a binary, so I wrote my first real [Yara](https://github.com/VirusTotal/yara) rule. I didn't have any (real-world) experiences with yara yet.
