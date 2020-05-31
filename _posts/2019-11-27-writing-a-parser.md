@@ -136,7 +136,7 @@ That describes our syntax pretty well. There is only a very small issue: The gra
 
 
 ## How parsers work - short digression
-Parsers use a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) to store the tokens they parse. Putting tokens on that stack is called "shifting". After a parser parsed some tokens and any production rule matches on the tokens on the stack, it "merge"s those tokens together. In our example the parser can merge together two `ESCAPED_STRING`s such as `"first_valid_class"		"2"` and replace those with the nonterminal `pair` because of our production rule `pair : ESCAPED_STRING ESCAPED_STRING`. That process is called "reducing".
+(Bottom-up) Parsers use a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) to store the tokens they parse. Putting tokens on that stack is called "shifting". After a parser parsed some tokens and any production rule matches on the tokens on the stack, it "merge"s those tokens together. In our example the parser can merge together two `ESCAPED_STRING`s such as `"first_valid_class"		"2"` and replace those with the nonterminal `pair` because of our production rule `pair : ESCAPED_STRING ESCAPED_STRING`. That process is called "reducing".
 
 
 ```
@@ -148,10 +148,11 @@ In this example ([taken from here](https://www.gobosoft.com/eiffel/gobo/geyacc/a
 
 So when the parser is in the situation where it could either shift another token onto the stack (because there is another rule that allows it) or it could reduce the items on the stack, then you call that a "shift/reduce conflict", because there is no way for the parser to decide what to do. There are also "reduce/reduce conflicts" which means there are several rules a parser can reduce something to. That stuff might be a bit hard to comprehend at first glance, so no worries if you did not understand everything. The most important part is that we want to change our grammar so that we don't have any conflicting rules that could lead us into conflicts. By the way, there are also reduce/reduce conflicts (when the parser has multiple possible rules on how to expand a nonterminal).
 
+As we already know there are multiple types of grammars. But there are also multiple types of parsers. You can differentiate between top-down and bottom-up parsers. And that does not mean that they read the file from top-down or bottom-up. Their names describe the way they build the parse tree. Bottom-up parsers work from the bottom of the tree (smallest parsible element, literal/terminal) to the top of the tree (nonterminals, structures). Top-down parsers work from the top of the tree down to the bottom of the tree. That also means that bottom-up parsers are generally 
 Since our grammar is not a LALR(1) grammar, because (e.g.) an `object` can be reduced into a `value` or into a `listitem`. That means that our grammar is ambiguous for LALR Parsers.
 
 ## LALR(1) Grammar
-The LA in LALR means, that we are using a parser with **L**ook **A**head functionality. That means that we check the following token before we make a final decision if we should shift or reduce. The LR means, that we are having a **L**eft-to-right, **R**ightmost derivation in reverse parser. Rightmost means that we parse the input from the bottom up. Otherwise it would be leftmost.
+The LA in LALR means, that we are using a parser with **L**ook **A**head functionality. That means that we check the following token before we make a final decision if we should shift or reduce. The LR means, that we are having a **L**eft-to-right, **R**ightmost derivation in reverse parser. Rightmost means that we parse the input from the bottom up. That also means that if we'd parse mathematical terms such as `a + b - c` we would get the result `a * (b - c)`. For top-down parsing it would look like `(a * b) - c`.
 
 Since the parser uses a look ahead, we must make sure that there are no two production rules that produce the same outcome or are otherwise ambigious. Unfortunately currently we have `value` and `listitem` and `file` which can produce the same outcome (namely `object`). Now we need to change that - e.g. by adding other characters so that the parser knows exactly when to shift or reduce.
 
