@@ -94,7 +94,7 @@ rule RoboThiefClient {
 		author = "Rico - @0Rickyy0"
 		reference = "https://www.virustotal.com/gui/file/2ad784eeb5525723162c521b9aefac965578d77d6269619abfb8656c25e9c48b/detection"
 		reference = "https://www.virustotal.com/gui/file/916db604bd5a3132cffc4c7a266585579fc9a5838ec0eba11f3532de5902c901/detection"
-		reference = "https://t.me/C0D3BA5E/99"
+		reference = "https://t.me/WeirdMachines/99"
 		reference = "https://github.com/MrModed/RoboThief-Telegram-Session-Stealer"
 		date = "2020-01-20"
 		description = "This rule detects the telegram credential stealer 'RoboThiefClient'"
