@@ -102,11 +102,12 @@ rule RoboThiefClient {
 	strings:
 		$robothiefclient = "RoboThiefClient" ascii wide nocase
 		$tdata = "tdata" ascii wide
-		$zip_file = "MT.zip" ascii wide 
+		$zip_file = "MT.zip" ascii wide
+        $zip_file2 = "MM.zip" ascii wide
 		$bottoken = /[0-9]+:[a-zA-Z0-9\-_]+/ ascii wide
 		
 	condition:
-		uint16(0) == 0x5a4d and filesize < 1000KB and $robothiefclient and 2 of ($zip_file, $tdata, $bottoken)
+		uint16(0) == 0x5a4d and filesize < 1000KB and $robothiefclient and 2 of ($zip_file, $zip_file2, $tdata, $bottoken)
 }
 ```
 
