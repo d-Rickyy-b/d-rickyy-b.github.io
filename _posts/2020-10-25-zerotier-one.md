@@ -63,14 +63,24 @@ But I couldn't contact any other device on that same network.
 ### Example 2: Site2Site VPN
 Another example to compare ZT with is classical Site2Site VPN. Usually companies use that to connect two or more of their branch offices to the headquaters - or to interconnect branche offices. It roughly looks like figure 2.
 
-{% include figure image_path="/assets/img/2020-10-25-zerotier-one/zerotierOneVPN.png" alt="Classical Site2Site VPN (CC BY-ND 4.0)" caption="Figure 2: Classical Site2Site VPN ([CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/))" %}
+<figure>
+  <a href="/assets/img/2020-10-25-zerotier-one/zerotierOneVPN.png">
+    <img src="/assets/img/2020-10-25-zerotier-one/zerotierOneVPN.png" alt="Figure 2: Classical Site2Site VPN (CC BY-ND 4.0)">
+  </a>
+  <figcaption>Figure 2: Classical Site2Site VPN (<a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>)</figcaption>
+</figure>
 
 In this case all data must be sent through the gateway servers which then take care of the routing between the branch networks.
 
 ### General ZeroTier Architecture
 In figure 3 you can see the general architecture of ZT. More on the technical details later. 
 
-{% include figure image_path="/assets/img/2020-10-25-zerotier-one/zerotierOneTwoClients.png" alt="Overview of the ZeroTier architecture (CC BY-ND 4.0)" caption="Figure 3: Overview of the ZeroTier architecture ([CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/))" %}
+<figure>
+  <a href="/assets/img/2020-10-25-zerotier-one/zerotierOneTwoClients.png">
+    <img src="/assets/img/2020-10-25-zerotier-one/zerotierOneTwoClients.png" alt="Figure 3: Overview of the ZeroTier architecture (CC BY-ND 4.0)">
+  </a>
+  <figcaption>Figure 3: Overview of the ZeroTier architecture (<a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>)</figcaption>
+</figure>
 
 **Note:** The figure shows a connection between only two devices. But ZT allows for up to 100 devices for their free tier hosted solution on the same network. If that's not enough for you, you can always host your own root server (called "moon") to connect even more endpoints.
 {: .notice--info}
