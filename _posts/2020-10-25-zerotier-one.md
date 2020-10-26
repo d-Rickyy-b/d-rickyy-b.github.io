@@ -1,6 +1,5 @@
 ---
 layout: single
-classes: wide
 title:  "ZeroTier - A smart p2p VPN solution"
 date:   2020-10-25 20:00:00 +0200
 toc: true 
