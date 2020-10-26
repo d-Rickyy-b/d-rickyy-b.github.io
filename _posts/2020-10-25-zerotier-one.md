@@ -13,7 +13,7 @@ It has a whole other focus than regular VPN services but could still be used as 
 This article talks about the system and software behind ZeroTier, what to use it for and scratches the surface of the architecture and technical implementation of the software.
 
 # Introduction
-If you are like me, you probably have a history of hundrets of hours playing Minecraft. 
+If you are like me, you probably have a history of hundreds of hours playing Minecraft. 
 Back in the days my friends and me were 12 years old and had no idea what Java is or how a computer works. 
 But Minecraft sparked our interest in computers in general. 
 In the first few years, we hadn't had any dedicated server to play together. Instead one of our friends hosted the Minecraft server on their computer. 
