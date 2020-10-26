@@ -50,7 +50,12 @@ The biggest difference between them is that ZT is a p2p VPN (or rather VDN as ex
 ### Example 1: Consumer Router VPN
 My router at home gives me the option to enable a VPN (L2TP/IPSec) endpoint. With that I can connect to my router from the public internet and get an IP address from within my local network. Now my device is part of the whole network. When another, new device (physically) connects to my router, I can instantly connect to it. It looks roughly like displayed in figure 1.
 
-{% include figure image_path="/assets/img/2020-10-25-zerotier-one/zerotierOneRouterVPN.png" alt="Customer Router VPN (CC BY-ND 4.0)" caption="Figure 1: Customer Router VPN ([CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/))" %}
+<figure>
+  <a href="/assets/img/2020-10-25-zerotier-one/zerotierOneRouterVPN.png">
+    <img src="/assets/img/2020-10-25-zerotier-one/zerotierOneRouterVPN.png" alt="Customer Router VPN (CC BY-ND 4.0)">
+  </a>
+  <figcaption>Figure 1: Customer Router VPN (<a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>)</figcaption>
+</figure>
 
 With ZT I would be directly connected to those clients which installed the ZeroTier One software and joined the same network as I did.
 But I couldn't contact any other device on that same network.
