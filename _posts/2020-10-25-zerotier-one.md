@@ -21,7 +21,7 @@ In the first few years, we hadn't had any dedicated server to play together. Ins
 But since we didn't know anything about "Public" and "Private" IP addresses or "Port Forwarding", we obviously couldn't join. Sooo... we used a tool called "Hamachi" which is a VPN software developed by "LogMeIn". 
 Most Minecraft players probably know it.
 
-It allowed us to create a VPN between all of our computers, so that we didn't need to worry about weird router settings and stuff.
+It allowed us to create a virtual network between all of our computers, so that we didn't need to worry about weird router settings and stuff.
 Also it was mentioned and suggested everywhere back then when you wanted to play Minecraft with friends. There were like a gazillion [YouTube tutorials](https://www.youtube.com/watch?v=5zVDzHqwz2M) for it.
 However we started gaining knowledge on the topic and eventually even bought our own game server, because it was so annoying to wait for the friend to come online to play.
 
@@ -35,7 +35,7 @@ And boy were we happy with it. This article is trying to give you a short introd
 I could probably write pages about this software and keep you busy reading, but instead I decided to copy from their GitHub repo and let the people behind ZeroTier explain it theirselves: 
 >"ZeroTier is a smart programmable Ethernet switch for planet Earth. It allows all networked devices, VMs, containers, and applications to communicate as if they all reside in the same physical data center or cloud region." [[ZeroTier GitHub repo](https://github.com/zerotier/ZeroTierOne)].
 
-In other words: ZeroTier is a software that enables you to connect multiple devices directly to each other via some kind of VPN. `Speaking of VPNs: our Sponsor NordVPN`... (No just kidding). But it's not the kind of VPN you'd expect. Even the developers themselves call their product "Virtual Distributed Network (VDN)" instead of VPN. Their GitHub repository proudly calls ZeroTier a "Global Area Networking" solution, which is quite fitting in my opinion.
+In other words: ZeroTier is a software that enables you to connect multiple devices directly to each other via some kind of VPN. `Speaking of VPNs: our Sponsor NordVPN`... (No, just kidding). But it's not the kind of VPN you'd expect. Even the developers themselves call their product "Virtual Distributed Network (VDN)" instead of VPN. Their GitHub repository proudly calls ZeroTier a "Global Area Networking" solution, which is quite fitting in my opinion.
 
 Note that there is a difference between "ZeroTier" and "ZeroTier One". While the first names the whole system/p2p network, the latter is the name for the client software.
 
@@ -45,10 +45,10 @@ In some regards, ZeroTier (ZT) is pretty similar to a regular VPN. Both are used
 
 Nowadays, popular VPN services are being used by most people as [glorified proxies](https://gist.github.com/joepie91/5a9909939e6ce7d09e29) to access certain websites they usually can't or to "encrypt their traffic to hide it from the bad guys", or to hide their public IP address from a service. That is not what VPNs were actually intended for. The original intention of VPNs was to provide access to (corporate) networks or to connect remote branch offices to the headquarters.
 
-The biggest difference between them is that ZT is a p2p VPN (or rather VDN as explained earlier) - which means that it connects certain devices with each other which also communicate directly with each other. No VPN server is needed. There is no single point of failure, after the connection has been established. You can think of it like that: a regular VPN connects networks, or maybe clients with a network. ZT instead connects clients directly which make up the whole network. It's a p2p VPN and it acts just as if the devices were connected to the same ethernet switch.
+The biggest difference between them is that ZT is a p2p VPN (or rather VDN as explained earlier) - which means that it connects certain devices directly rather than throuh a dedicated remote server. There is no single point of failure, after the connection has been established. You can think of it like that: a regular VPN connects networks, or maybe clients with a network. ZT instead connects clients directly which make up the whole network. It acts just as if the devices were connected to the same ethernet switch.
 
 ### Example 1: Consumer Router VPN
-My router at home gives me the option to enable a VPN (L2TP/IPSec) endpoint. With that I can connect to my router from the public internet and get an IP address from within my local network. Now my device is part of the whole network. When another, new device (physically) connects to my router, I can instantly connect to it. It looks roughly like displayed in figure 1.
+My router at home gives me the option to enable a VPN (L2TP/IPSec) endpoint. With that I can connect to my router from the public internet and get an IP address from within my local network. Now my device is part of the entire network. When another, new device (physically) connects to my router, I can instantly connect to it. It looks roughly like displayed in figure 1.
 
 <figure>
   <a href="/assets/img/2020-10-25-zerotier-one/zerotierOneRouterVPN.png">
@@ -57,11 +57,11 @@ My router at home gives me the option to enable a VPN (L2TP/IPSec) endpoint. Wit
   <figcaption>Figure 1: Customer Router VPN (<a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>)</figcaption>
 </figure>
 
-With ZT I would be directly connected to those clients which installed the ZeroTier One software and joined the same network as I did.
-But I couldn't contact any other device on that same network.
+With ZT I would be directly connected only to those clients which installed the ZeroTier One software and joined the same network as I did.
+But I couldn't contact any other device on the router network.
 
 ### Example 2: Site2Site VPN
-Another example to compare ZT with is classical Site2Site VPN. Usually companies use that to connect two or more of their branch offices to the headquaters - or to interconnect branche offices. It roughly looks like figure 2.
+Another thing to compare ZT with is classical Site2Site VPN. Usually companies use that to connect two or more of their branch offices to the headquaters - or to interconnect branche offices. It roughly looks like figure 2.
 
 <figure>
   <a href="/assets/img/2020-10-25-zerotier-one/zerotierOneVPN.png">
@@ -91,7 +91,7 @@ With the tools given by ZT you could of course also go ahead and [build yourself
 
 ## Wait, so what can I use it for?
 There are a lot of use cases for ZeroTier such as:
-- Hosting a game server (LAN Party)
+- Hosting a game server at home (remote LAN party)
     - Useful for LAN only (or cracked) games
 - Accessing any device behind NAT directly
     - Access your NAS at home
@@ -102,7 +102,7 @@ There are a lot of use cases for ZeroTier such as:
 - Easily [connect docker containers with each other](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7536656/Running+ZeroTier+in+a+Docker+Container)
 - Giving endpoints with changing IPs on the public internet a static IP (within the VDN)
 
-Some of the above points are obviously also realizable with a standard VPN software, but often require some/more configuration and often depend on a VPN server that must be active at all times for the connection to work. For ZT it's only needed for establishing the connection between two peers and it needs no configuration apart from creating a network & entering it on the clients.
+Some of the above use cases are obviously also realizable with a standard VPN software, but often require significantly more configuration and depend on a VPN server that must be active at all times for the connection to keep working. For ZT it's only needed for establishing the connection between two peers and it needs no configuration apart from creating a network & joining it with the clients.
 
 ## What was the motivation to create ZeroTier?
 The founder of ZeroTier wrote a few excellent blog posts on their reasoning behind creating a p2p VPN like system. Those posts/essays are really, really worth reading. Hence I only want to talk about the key takeaways of those articles and leave the rest for you to read yourself.
@@ -124,10 +124,12 @@ Go ahead and read the blog post ["Op-ed: Internet centralization is not a conspi
 # Technical insights
 If you only wanted to know what ZeroTier is and how it can be used, you can finish reading here. From this paragraph on I will only explain the technology behind ZT.
 
-Whilst working with ZT I barely got in contact with the underlying technology. It was so easy and simple to set up that I started wondering about how this software actually works. So I decided to take a look under the hood. There is a lot to talk about and I really don't want to bore you out with pesky details, so I try to keep it as short as necessary to understand it. I'll focus on the architecture only. Also a quick reminder: the following is my understanding of it - I might have gotten something wrong.
+Whilst working with ZT I barely got in contact with the underlying technology. It was so easy and simple to set up that I started wondering about how this software actually works. Following my interest I decided to take a look under the hood. 
+There is a lot to talk about and I really don't want to bore you out with pesky details, so I try to keep it as short as necessary to understand it. I'll focus on the architecture only. Also a quick reminder: the following is my understanding of it - I might have gotten something wrong.
 
 ## P2P Connection
-Since most devices on the internet are somewhere behind a NAT device (e.g. your router), there is no easy way to initiate a direct communication to that device from the outside. To acheive a direct communication of peers, ZeroTier came up with an interesting solution. They divided the connection into two parts:
+Since most devices on the internet are somewhere behind a NAT device (e.g. your router), there is no easy way to initiate a direct communication to a device from outside the local network. 
+To acheive a direct communication of peers, ZeroTier came up with an interesting solution. They divided the connection into two parts:
 
 - VL1 - p2p component (encryption, direct communication)
 - VL2 - virtual Ethernet component (authorization, access control, network rules)
@@ -178,7 +180,7 @@ Hosted webgui for the Network Controller with a simple user interface to configu
 ## Network Rules Engine 
 After joining a virtual network, there is no (hardware) firewall in place to protect your devices from malicious packets of peers.
 But ZeroTier got you covered. As a network maintainer you can utilize the "Rules Engine" of ZT.
-Those rules are pretty similar to firewall rules.
+Those rules are pretty similar to regular firewall rules of popular vendors.
 
 The rules are distributed by the network controller and are enforced on the sender and receiver side. So an attacker would need to compromise both sides to circumvent the rules engine.
 
@@ -243,7 +245,7 @@ Setting up ZeroTier One is very easy:
 3. [Download](https://www.zerotier.com/download/) the ZeroTier One software
 4. Join the network
 
-If you are more of a "visual person", I can recommend you [this video by Lawrence Systems](https://www.youtube.com/watch?v=ZShna7v77xc), explaining how to setup ZeroTier One with two windows computers. But setting it up on linux, MacOS, FreeBSD, your NAS, Android or iOS is just as simple.
+If you are more of a "visual person", I recommend you [this video by Lawrence Systems](https://www.youtube.com/watch?v=ZShna7v77xc), explaining how to setup ZeroTier One with two windows computers. But setting it up on linux, MacOS, FreeBSD, your NAS, Android or iOS is just as simple.
 
 # Final notes
 I truely think that we all could benefit from a bit more decentralized IT world with less giant companies owning huge services but more smaller, distributed services. And in my opinion ZeroTier is currently the easiest way to acheive this goal.
