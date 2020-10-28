@@ -248,7 +248,7 @@ Setting up ZeroTier One is very easy:
 If you are more of a "visual person", I recommend you [this video by Lawrence Systems](https://www.youtube.com/watch?v=ZShna7v77xc), explaining how to setup ZeroTier One with two windows computers. But setting it up on linux, MacOS, FreeBSD, your NAS, Android or iOS is just as simple.
 
 # Final notes
-I truely think that we all could benefit from a bit more decentralized IT world with less giant companies owning huge services but more smaller, distributed services. And in my opinion ZeroTier is currently the easiest way to acheive this goal.
+I truely think that we all could benefit from a more decentralized IT world with less giant companies owning huge services but more smaller, distributed services. And in my opinion ZeroTier is currently the easiest way to acheive this goal.
 
 I want to close this post with a huge "thank you" for reading this far. I hope you learned something from reading this post. If you got any questions or feedback, feel free to reach out for me.
 
