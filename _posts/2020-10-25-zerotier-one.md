@@ -28,11 +28,11 @@ However we started gaining knowledge on the topic and eventually even bought our
 Now recently I wanted to play a "LAN only" game with my friends over the internet - we weren't able to enter server IPs or stuff - the lobby could only be autodiscovered via LAN. So we thought about installing Hamachi again.
 But due to their horrible UX/UI and sometimes even bloated installers, we decided against it.
 Next we thought about "Tunngle" (which is somewhat similar to ZeroTier technology wise), but on the one hand it's as bad as Hamachi regarding bloatware and even ads within the application and on the other hand it was shut down in 2018. 
-So after some googleing we found "ZeroTier One" and gave it a try.
+So after some googling we found "ZeroTier One" and gave it a try.
 And boy were we happy with it. This article is trying to give you a short introduction to the capabilities of ZeroTier and how it works on a technical note.
 
 # What exactly is "ZeroTier"?
-I could probably write pages about this software and keep you busy reading, but instead I decided to copy from their GitHub repo and let the people behind ZeroTier explain it theirselves: 
+I could probably write pages about this software and keep you busy reading, but instead I decided to copy from their GitHub repo and let the people behind ZeroTier explain it themselves: 
 >"ZeroTier is a smart programmable Ethernet switch for planet Earth. It allows all networked devices, VMs, containers, and applications to communicate as if they all reside in the same physical data center or cloud region." [[ZeroTier GitHub repo](https://github.com/zerotier/ZeroTierOne)].
 
 In other words: ZeroTier is a software that enables you to connect multiple devices directly to each other via some kind of VPN. `Speaking of VPNs: our Sponsor NordVPN`... (No, just kidding). But it's not the kind of VPN you'd expect. Even the developers themselves call their product "Virtual Distributed Network (VDN)" instead of VPN. Their GitHub repository proudly calls ZeroTier a "Global Area Networking" solution, which is quite fitting in my opinion.
@@ -45,7 +45,7 @@ In some regards, ZeroTier (ZT) is pretty similar to a regular VPN. Both are used
 
 Nowadays, popular VPN services are being used by most people as [glorified proxies](https://gist.github.com/joepie91/5a9909939e6ce7d09e29) to access certain websites they usually can't or to "encrypt their traffic to hide it from the bad guys", or to hide their public IP address from a service. That is not what VPNs were actually intended for. The original intention of VPNs was to provide access to (corporate) networks or to connect remote branch offices to the headquarters.
 
-The biggest difference between them is that ZT is a p2p VPN (or rather VDN as explained earlier) - which means that it connects certain devices directly rather than throuh a dedicated remote server. There is no single point of failure, after the connection has been established. You can think of it like that: a regular VPN connects networks, or maybe clients with a network. ZT instead connects clients directly which make up the whole network. It acts just as if the devices were connected to the same ethernet switch.
+The biggest difference between them is that ZT is a p2p VPN (or rather VDN as explained earlier) - which means that it connects certain devices directly rather than through a dedicated remote server. There is no single point of failure, after the connection has been established. You can think of it like that: a regular VPN connects networks, or maybe clients with a network. ZT instead connects clients directly which make up the whole network. It acts just as if the devices were connected to the same Ethernet switch.
 
 ### Example 1: Consumer Router VPN
 My router at home gives me the option to enable a VPN (L2TP/IPSec) endpoint. With that I can connect to my router from the public internet and get an IP address from within my local network. Now my device is part of the entire network. When another, new device (physically) connects to my router, I can instantly connect to it. It looks roughly like displayed in figure 1.
@@ -61,7 +61,7 @@ With ZT I would be directly connected only to those clients which installed the 
 But I couldn't contact any other device on the router network.
 
 ### Example 2: Site2Site VPN
-Another thing to compare ZT with is classical Site2Site VPN. Usually companies use that to connect two or more of their branch offices to the headquaters - or to interconnect branche offices. It roughly looks like figure 2.
+Another thing to compare ZT with is classical Site2Site VPN. Usually companies use that to connect two or more of their branch offices to the headquarters - or to interconnect branched offices. It roughly looks like figure 2.
 
 <figure>
   <a href="/assets/img/2020-10-25-zerotier-one/zerotierOneVPN.png">
@@ -109,7 +109,7 @@ The founder of ZeroTier wrote a few excellent blog posts on their reasoning behi
 
 Their main point is that the internet became way too centralized. Initially the internet was created as a interconnected, distributed system to better cope with failures and centralized outages. When a certain route between two ISPs goes down, the routing protocols will quickly redirect all traffic over another connection, keeping the internet alive.
 
-Now apart from centralized **services** such as Dropbox, facebook etc. we see the effects of centralization now more than ever: A large number of sites hosted by major hosting companies or using DDoS protection from vendors like Cloudflare will suffer from connection issues, when the hoster is having outages or other issues. On July 2, 2019 Cloudflare suffered a major outage that made to 12 million websites go offline for 27 minutes.
+Now apart from centralized **services** such as Dropbox, Facebook etc. we see the effects of centralization now more than ever: A large number of sites hosted by major hosting companies or using DDoS protection from vendors like Cloudflare will suffer from connection issues, when the hoster is having outages or other issues. On July 2, 2019 Cloudflare suffered a major outage that made to 12 million websites go offline for 27 minutes.
 
 Cloudflare (as a reverse proxy) is being [used by ~14.8%](https://w3techs.com/technologies/details/cn-cloudflare) of all known websites. That's more than 1/8th of the entire internet (meaning websites).
 
@@ -129,14 +129,14 @@ There is a lot to talk about and I really don't want to bore you out with pesky 
 
 ## P2P Connection
 Since most devices on the internet are somewhere behind a NAT device (e.g. your router), there is no easy way to initiate a direct communication to a device from outside the local network. 
-To acheive a direct communication of peers, ZeroTier came up with an interesting solution. They divided the connection into two parts:
+To achieve a direct communication of peers, ZeroTier came up with an interesting solution. They divided the connection into two parts:
 
 - VL1 - p2p component (encryption, direct communication)
 - VL2 - virtual Ethernet component (authorization, access control, network rules)
 
-**VL1** is designed to be zero-configuration. Users don't need to write configuration files or fiddle with IP addresses or similar. VL1 is used to connect two endpoints directly to each other (similar to OSI **L**ayer **1** - hence the name V**L1**) with the help of the Root Servers. It is the peer2peer component in ZeroTier, that creates the virtual network itself. It also implements technologies such as [UDP Hole Punching](https://en.wikipedia.org/wiki/UDP_hole_punching) which are being used by ZT to circumvent NAT. And as mentioned in the introduction of this post, NAT is the main reason why it is so hard for unexperienced users to host a gaming server from home.
+**VL1** is designed to be zero-configuration. Users don't need to write configuration files or fiddle with IP addresses or similar. VL1 is used to connect two endpoints directly to each other (similar to OSI **L**ayer **1** - hence the name V**L1**) with the help of the Root Servers. It is the peer2peer component in ZeroTier, that creates the virtual network itself. It also implements technologies such as [UDP Hole Punching](https://en.wikipedia.org/wiki/UDP_hole_punching) which are being used by ZT to circumvent NAT. And as mentioned in the introduction of this post, NAT is the main reason why it is so hard for inexperienced users to host a gaming server from home.
 
-Then there is **VL2** which is the ethernet virtualization layer (similar to OSI **L**ayer **2** - hence the name V**L2**). 
+Then there is **VL2** which is the Ethernet virtualization layer (similar to OSI **L**ayer **2** - hence the name V**L2**). 
 > VL2 is a [VXLAN](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN)-like network virtualization protocol with SDN management features. It implements secure VLAN boundaries, multicast, rules, capability based security, and certificate based access control.  
 [[ZeroTier Manual](https://www.zerotier.com/manual/#2_2)].
 
@@ -171,11 +171,11 @@ To outline the purposes of and differences between the root servers and controll
 **Note:** In figure 3 there is no visible link from the two clients to the network controller. This was left out intentionally to keep the figure a bit less complex. But of course both clients need to contact the controller at least once via VL1.
 {: .notice--warning}
 
-As said previously, you can also [run your own controller](https://github.com/zerotier/ZeroTierOne/tree/master/controller) for independency of ZeroTier.
+As said previously, you can also [run your own controller](https://github.com/zerotier/ZeroTierOne/tree/master/controller) for independence from ZeroTier.
 
 
 ## ZeroTier Central
-Hosted webgui for the Network Controller with a simple user interface to configure your networks, authorize clients and configure the rule set for the rule engine. Accessible at [my.zerotier.com](https://my.zerotier.com/). From what I found, this webgui is not part of the controller software. Hence someone created a web frontend for selfhosted controllers named [ztncui](https://github.com/key-networks/ztncui).
+Hosted webGUI for the Network Controller with a simple user interface to configure your networks, authorize clients and configure the rule set for the rule engine. Accessible at [my.zerotier.com](https://my.zerotier.com/). From what I found, this webGUI is not part of the controller software. Hence someone created a web front end for self-hosted controllers named [ztncui](https://github.com/key-networks/ztncui).
 
 ## Network Rules Engine 
 After joining a virtual network, there is no (hardware) firewall in place to protect your devices from malicious packets of peers.
@@ -188,9 +188,9 @@ There is a huge difference from regular firewall rules. The Rules Engine of ZT i
 Instead of state tracking they implemented capability-based security and device tagging. 
 That way you can give granular permissions to devices or groups of devices. 
 Which means that you can segment your virtual network into groups and permit or deny certain traffic from and to other groups. 
-And since capabilities and tags are cryptographically signed, we can be certain that a peer claiming to have those capabilities/tags actually has them. Because they can proove it. 
+And since capabilities and tags are cryptographically signed, we can be certain that a peer claiming to have those capabilities/tags actually has them. Because they can prove it. 
 
-Also that means that there is no way to spoof (or "steal") capabilities/tags by simply being a member of the network. You'd need to compromise the client to acheive this.
+Also that means that there is no way to spoof (or "steal") capabilities/tags by simply being a member of the network. You'd need to compromise the client to achieve this.
 
 ```
 # A tag we might use to group devices together as e.g. members of the same
@@ -227,7 +227,7 @@ The above example was (partly) taken from [this gist](https://gist.github.com/ad
 All in all the rules engine is a very powerful tool to restrict access even down to single devices. It might not be as capable compared to a stateful firewall in some cases, but it gives more than enough options for basic firewalling or basic network traffic restriction.
 
 ## Security implications
-As explained earlier, joining a ZeroTier network is basically the same as if you'd connect these same devices to one ethernet switch. So you should be aware of what that means from a security point of view.
+As explained earlier, joining a ZeroTier network is basically the same as if you'd connect these same devices to one Ethernet switch. So you should be aware of what that means from a security point of view.
 Since you are connected directly to other devices - depending on your use case even devices from strangers - you should ensure that the firewall of your OS is enabled (e.g. Windows Firewall, iptables).
 There is no extra NAT router or firewall (apart from the Network Rules Engine) blocking packets within the network.
 For example: If you are running an SSH server on the ZeroTier network interface, other clients could try to log into your system. Make sure to restrict access where not needed.
@@ -248,7 +248,7 @@ Setting up ZeroTier One is very easy:
 If you are more of a "visual person", I recommend you [this video by Lawrence Systems](https://www.youtube.com/watch?v=ZShna7v77xc), explaining how to setup ZeroTier One with two windows computers. But setting it up on linux, MacOS, FreeBSD, your NAS, Android or iOS is just as simple.
 
 # Final notes
-I truely think that we all could benefit from a more decentralized IT world with less giant companies owning huge services but more smaller, distributed services. And in my opinion ZeroTier is currently the easiest way to acheive this goal.
+I truly think that we all could benefit from a bit more decentralized IT world with less giant companies owning huge services but more smaller, distributed services. And in my opinion ZeroTier is currently the easiest way to achieve this goal.
 
 I want to close this post with a huge "thank you" for reading this far. I hope you learned something from reading this post. If you got any questions or feedback, feel free to reach out for me.
 
