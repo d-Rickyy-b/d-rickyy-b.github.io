@@ -3,10 +3,10 @@ layout: single
 classes: wide
 title:  "Quote unquote - How not to encode passwords"
 date:   2021-01-22 10:00:00 +0200
-category: Networking
+category: Debugging
 tags: [Android, Debugging]
 ---
-# 
+# My approach to debugging an issue in Outlook
 
 ## tl;dr
 I found a bug (to be confirmed) in the Outlook app for Android.
