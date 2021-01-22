@@ -33,7 +33,7 @@ So the first thing is to find out when exactly the bug occurs.
 It was clear that the issue was somewhat related to the account in question: `spam@rico-j.de`.
 Another account on the same domain worked fine for months, so I was pretty sure this wasn't a server configuration issue.
 Thus a logical step would be to compare the client configurations for both accounts.
-And I did that, nut there really was no difference.
+And I did that, but there really was no difference.
 
 
 ### Wrong password? Typo? Copied another character?
