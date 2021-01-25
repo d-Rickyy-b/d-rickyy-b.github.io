@@ -122,7 +122,7 @@ And btw. using "K9" to log in to the actual mail server, the login unsurprisingl
 But what format exactly would a mail server expect?
 
 As with (nearly) all things on the internet, there's an RFC describing the underlying technology.
-In the case of mailing, the protocol we are looking for (in this case) is IMAP.
+In the case of mailing, the protocol we are looking for is IMAP.
 The proper RFC is [RFC3501](https://tools.ietf.org/html/rfc3501) and in [section 9](https://tools.ietf.org/html/rfc3501#section-9) it is specifically talking about the syntax described in the ABNF form.
 Here we can find the format of a password.
 
