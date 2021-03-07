@@ -25,7 +25,7 @@ It allowed us to create a virtual network between all of our computers, so that 
 Also it was mentioned and suggested everywhere back then when you wanted to play Minecraft with friends. There were like a gazillion [YouTube tutorials](https://www.youtube.com/watch?v=5zVDzHqwz2M) for it.
 However we started gaining knowledge on the topic and eventually even bought our own game server, because it was so annoying to wait for the friend to come online to play.
 
-Now recently I wanted to play a "LAN only" game with my friends over the internet - we weren't able to enter server IPs or stuff - the lobby could only be autodiscovered via LAN. So we thought about installing Hamachi again.
+Now recently I wanted to play a "LAN only" game with my friends over the internet - we weren't able to enter server IPs or stuff - the lobby could only be auto-discovered via LAN. So we thought about installing Hamachi again.
 But due to their horrible UX/UI and sometimes even bloated installers, we decided against it.
 Next we thought about "Tunngle" (which is somewhat similar to ZeroTier technology wise), but on the one hand it's as bad as Hamachi regarding bloatware and even ads within the application and on the other hand it was shut down in 2018. 
 So after some googling we found "ZeroTier One" and gave it a try.
@@ -107,7 +107,7 @@ Some of the above use cases are obviously also realizable with a standard VPN so
 ## What was the motivation to create ZeroTier?
 The founder of ZeroTier wrote a few excellent blog posts on their reasoning behind creating a p2p VPN like system. Those posts/essays are really, really worth reading. Hence I only want to talk about the key takeaways of those articles and leave the rest for you to read yourself.
 
-Their main point is that the internet became way too centralized. Initially the internet was created as a interconnected, distributed system to better cope with failures and centralized outages. When a certain route between two ISPs goes down, the routing protocols will quickly redirect all traffic over another connection, keeping the internet alive.
+Their main point is that the internet became way too centralized. Initially the internet was created as an interconnected, distributed system to better cope with failures and centralized outages. When a certain route between two ISPs goes down, the routing protocols will quickly redirect all traffic over another connection, keeping the internet alive.
 
 Now apart from centralized **services** such as Dropbox, Facebook etc. we see the effects of centralization now more than ever: A large number of sites hosted by major hosting companies or using DDoS protection from vendors like Cloudflare will suffer from connection issues, when the hoster is having outages or other issues. On July 2, 2019 Cloudflare suffered a major outage that made to 12 million websites go offline for 27 minutes.
 
@@ -245,7 +245,7 @@ Setting up ZeroTier One is very easy:
 3. [Download](https://www.zerotier.com/download/) the ZeroTier One software
 4. Join the network
 
-If you are more of a "visual person", I recommend you [this video by Lawrence Systems](https://www.youtube.com/watch?v=ZShna7v77xc), explaining how to setup ZeroTier One with two windows computers. But setting it up on linux, MacOS, FreeBSD, your NAS, Android or iOS is just as simple.
+If you are more of a "visual person", I recommend you [this video by Lawrence Systems](https://www.youtube.com/watch?v=ZShna7v77xc), explaining how to setup ZeroTier One with two windows computers. But setting it up on Linux, MacOS, FreeBSD, your NAS, Android or iOS is just as simple.
 
 # Final notes
 I truly think that we all could benefit from a bit more decentralized IT world with less giant companies owning huge services but more smaller, distributed services. And in my opinion ZeroTier is currently the easiest way to achieve this goal.
