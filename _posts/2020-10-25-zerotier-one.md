@@ -52,9 +52,9 @@ My router at home gives me the option to enable a VPN (L2TP/IPSec) endpoint. Wit
 
 <figure>
   <a href="/assets/img/2020-10-25-zerotier-one/zerotierOneRouterVPN.png">
-    <img src="/assets/img/2020-10-25-zerotier-one/zerotierOneRouterVPN.png" alt="Customer Router VPN (CC BY-ND 4.0)">
+    <img src="/assets/img/2020-10-25-zerotier-one/zerotierOneRouterVPN.png" alt="Consumer Router VPN (CC BY-ND 4.0)">
   </a>
-  <figcaption>Figure 1: Customer Router VPN (<a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>)</figcaption>
+  <figcaption>Figure 1: Consumer Router VPN (<a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>)</figcaption>
 </figure>
 
 With ZT I would be directly connected only to those clients which installed the ZeroTier One software and joined the same network as I did.
