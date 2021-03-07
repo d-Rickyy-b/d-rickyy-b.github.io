@@ -5,9 +5,9 @@ title:  "The most important software - a collection"
 date:   2019-06-30 22:08:00 +0200
 ---
 
-Have you ever gotten questions about what's the best software for a certain purpose? Well I got these questions a lot and that's the main reason why I thought I should setup a list with my all time favorite software which I use very often or even on a day to day basis.
+Have you ever gotten questions about what's the best software for a certain purpose? Well I get these questions all the time and that's the main reason why I thought I should setup a list with my all time favorite software which I use a lot.
 
-Apart from that, setting up a new computer or reinstalling the OS on your current computer for whatever reason is quite annoying. The part which annoys me the most is downloading the software you use on a day to day basis. In most cases you forget about the one thing you use every now and then and when you need it, it's not there. That's probably the second reason why I started this list.
+Apart from getting asked a lot, there is also another reason why I wrote this post: setting up a new computer or reinstalling the OS on your current computer for whatever reason is quite annoying. The part which annoys me the most is downloading the software you use. In most cases you forget about the one thing you use every now and then and when you need it a few days or weeks later, it's not there.
 
 That list is of course not only valid for fresh installations but also for older installations - maybe you find some useful software within this list.
 
