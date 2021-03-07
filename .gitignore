@@ -1,0 +1,3 @@
+# Gitignore file for the blog at blog.rico-j.de
+.vscode
+*.code-workspace
