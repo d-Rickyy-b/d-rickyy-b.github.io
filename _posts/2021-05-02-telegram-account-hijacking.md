@@ -61,6 +61,7 @@ Below you can find a detailed graph on all the entities involved.
   <a href="/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_full.png">
     <img src="/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_full.png" alt="Overview of the scam workflow">
   </a>
+    <figcaption>Contains icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> and <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> (skull and bot icons)</figcaption>
 </figure>
 
 ### Workflow visualized as a timeline
