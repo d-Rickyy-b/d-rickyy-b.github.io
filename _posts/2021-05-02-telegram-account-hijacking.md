@@ -56,11 +56,20 @@ In our case the login came from an IP address located in Romania. Seemingly from
 
 ### Graphical Overview
 Below you can find a detailed graph on all the entities involved.
-![Overview of the scam workflow](/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_full.png)
+
+<figure>
+  <a href="/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_full.png">
+    <img src="/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_full.png" alt="Overview of the scam workflow">
+  </a>
+</figure>
 
 ### Workflow visualized as a timeline
 
-![Timeline of the scam workflow](/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_time.png)
+<figure>
+  <a href="/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_time.png">
+    <img src="/assets/img/2021-05-02-telegram-account-hijacking/scam_workflow_time.png" alt="Timeline of the scam workflow">
+  </a>
+</figure>
 
 ## ⚠️ Consequences
 After logging in, the adversary has full access to your Telegram account, can access all your Telegram "Cloud Chats" (which are all chats except the "Secret Chats") and the messages you sent in the past. They can send new messages to your contacts and beyond. They can delete conversations. They can make you join groups, channels, etc. They can set up 2FA and lock you out of your account.
