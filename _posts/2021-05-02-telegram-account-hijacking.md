@@ -79,7 +79,7 @@ Also the adversaries could send illegal content (e.g. stuff forbidden by the [Te
 
 ## How was the bot compromised?
 
-There are at least three ways on how a Telegram bot could get compromised. Both are very trivial.
+There are at least three ways on how a Telegram bot could get compromised. All of which are very trivial.
 
 1. The bot is owned by the adversary
 2. The **bot's token** of a random other bot was published to e.g. GitHub, Pastebin or any other place
