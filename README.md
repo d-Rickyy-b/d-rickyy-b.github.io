@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+# [Rico's blog](https://blog.rico-j.de) - IT, infosec, osint, malware research, etc.
 
-You can use the [editor on GitHub](https://github.com/d-Rickyy-b/d-Rickyy-b.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Hi there and welcome to the GitHub repository of [my blog](https://blog.rico-j.de). I am using GitHub pages with the [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) Jekyll theme to host said blog.
+I am writing about a lot of things I come across. Personal stuff, opinions, interesting tech, malware, infosec, osint, and a lot more.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Structure of the repository
 
-### Markdown
+The structure of this repository is actually quite simple.
+Check out this directory tree.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+.
+├───assets
+│   ├───files
+│   │   ├───<dirs for other files used in articles>
+│   │   ├───yyyy-mm-dd-name-of-article
+│   │   └───yyyy-mm-dd-name-of-article-n
+│   └───img
+│       ├───<dirs for image files used in articles>
+│       ├───yyyy-mm-dd-name-of-article
+│       └───yyyy-mm-dd-name-of-article-n
+├───_includes
+│   └───head
+├───_pages
+└───_posts
+    ├───<all article markdown files>
+    ├───yyyy-mm-dd-name-of-article-1.md
+    └───yyyy-mm-dd-name-of-article-n.md
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+All the articles go into the `/_posts` directory.
+They are named after this schema: `yyyy-mm-dd-name.md`.
 
-### Jekyll Themes
+For each article there can be matching directories with the same name (excluding the `.md`) as the article within the `/assets/files` and `/assets/img` directories.
+In those go all the data/images I refer to in my posts.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/d-Rickyy-b/d-Rickyy-b.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
