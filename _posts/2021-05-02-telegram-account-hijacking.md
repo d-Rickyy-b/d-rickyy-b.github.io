@@ -87,6 +87,8 @@ There are at least three ways on how a Telegram bot could get compromised. All o
 
 With access to the account (2) the adversaries could simply read the chat with [@BotFather](https://t.me/BotFather) and get hold of the bot token.
 
+Also there are plenty of OSINT tools for monitoring GitHub or Pastebin for secrets - e.g. [shhgit](https://github.com/eth0izzle/shhgit) or [pastepwn](https://github.com/d-Rickyy-b/pastepwn), so be careful not to post them publicly.
+
 ## How to take back control...
 
 ### ... when your account was hijacked?
