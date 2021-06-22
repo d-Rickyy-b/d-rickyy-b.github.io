@@ -48,9 +48,49 @@ That means, all the messages (except secret chats) are stored in the cloud.
 And as long as no message is deleted, they are accessible by all participants of a chat. 
 That also means that we can utilize the [forwardMessage](https://core.telegram.org/bots/api#forwardmessage) API method to forward the conversation between the fraudster and the bot to our account. 
 
-For this purpose I created a small python script: 
+For this purpose I created a small python script (you can also view the code on [GitHub Gist](https://gist.github.com/d-Rickyy-b/405c2341d762fa87e73edd8f584830e6)): 
 
-{% gist 405c2341d762fa87e73edd8f584830e6 %}
+```python
+# Script to forward the content of a chat between a Telegram Bot and a user to another user
+# Make sure to insert your user_id into `receiver_id` and send /start to the bot on Telegram beforehand
+import requests
+import time
+
+# from_chat_id and token are written in the javascript on the phishing site!
+# the from_chat_id is the initial receiver of the phishing results
+from_chat_id = ""
+token = ""
+
+# Enter your user_id as the receiver ID
+receiver_id = ""
+
+url = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={receiver_id}&from_chat_id={from_chat_id}&message_id="
+
+error_counter = 0
+message_counter = 0
+
+while True:
+    # Query Telegram to forward the message with the given ID to the receiver
+    resp = requests.get(url + str(message_counter))
+
+    if resp.status_code != 200:
+        # If the Telegram API responds with a status code != 200, the message doesn't exist
+        # That could mean that it was deleted, or it's the last message in that chat!
+        # If there are 10 consecutive errors we stop the data collection!
+        print(f"Issue with request at index {message_counter}! Stopping")
+        error_counter += 1
+
+        if error_counter >= 10:
+            print("10 consecutive errors! Exiting!")
+            exit()
+    else:
+        error_counter = 0
+
+    # Telegram allows for 1 msg/s per chat - so we need this sleep in order to not get http 429 errors
+    time.sleep(1)
+    message_counter += 1
+
+```
 
 Now after running that script, we copied the whole conversation to our own chat. 
 Btw. Telegram returns the message when calling the `forwardMessage` API endpoint, so you can also use the returned json object to further work with the exfiltrated data instead of going through it by hand. 
