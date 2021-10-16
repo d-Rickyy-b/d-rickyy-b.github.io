@@ -85,7 +85,7 @@ In figure 3 you can see the general architecture of ZT. More on the technical de
 **Note:** The figure shows a connection between only two devices. But ZT allows for up to 100 devices for their free tier hosted solution on the same network. If that's not enough for you, you can always host your own root server (called "moon") to connect even more endpoints.
 {: .notice--info}
 
-The way ZeroTier works really gives you the ability to create a "Global Area Network" and connect a nearly unlimited amounts of clients to the same virtual switch.
+The way ZeroTier works really gives you the ability to create a "Global Area Network" and connect a nearly unlimited amount of clients to the same virtual switch.
 
 With the tools given by ZT you could of course also go ahead and [build yourself some gateway server](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/One+Port+Linux+Bridge) to route all traffic from the ZeroTier interface into the internet and hence creating something very similar to a regular VPN server (see figure 2).
 
@@ -96,7 +96,7 @@ There are a lot of use cases for ZeroTier such as:
 - Accessing any device behind NAT directly
     - Access your NAS at home
     - Share a Plex instance with your friends and family
-    - Connect to SSH to your home server without opening the port to the whole internet
+    - Connect via SSH to your home server without opening the port to the whole internet
     - [Use your local PiHole as DNS server from everywhere](https://discourse.pi-hole.net/t/how-to-easily-use-your-pi-hole-outside-of-your-personal-network/18878)
 - [Only allow SSH to your server from p2p connected devices](https://breadnet.co.uk/zerotier-cloud-managment/)
 - Easily [connect docker containers with each other](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7536656/Running+ZeroTier+in+a+Docker+Container)
@@ -114,7 +114,7 @@ Now apart from centralized **services** such as Dropbox, Facebook etc. we see th
 Cloudflare (as a reverse proxy) is being [used by ~14.8%](https://w3techs.com/technologies/details/cn-cloudflare) of all known websites. That's more than 1/8th of the entire internet (meaning websites).
 
 Don't get me wrong, there are indeed good reasons for centralization (and even for the usage of Cloudflare). But at the same time centralization introduces new risks and issues (technical as non-technical ones) to cope with. 
->All that centralization comes at a cost: monopoly rents, mass surveillance, functionality gate keeping, uncompensated monetization of our content, and diminished opportunities for new entrepreneurship and innovation."  
+>"All that centralization comes at a cost: monopoly rents, mass surveillance, functionality gate keeping, uncompensated monetization of our content, and diminished opportunities for new entrepreneurship and innovation."  
 [[Adam Ierymenko](https://adamierymenko.com/decentralization.html)]
 
 Also building decentralized systems is plain hard to do. That's basically why ZeroTier was created. To provide users and developers with tools to easily ("with zero configuration") connect devices into a distributed network.
