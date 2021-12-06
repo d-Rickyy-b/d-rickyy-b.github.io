@@ -103,6 +103,6 @@ Also there are plenty of OSINT tools for monitoring GitHub or Pastebin for secre
 # Conclusion & How to prevent
 Summing up: If your bot is replying to messages with either of the initially mentioned messages (and you did not add these yourself) then someone had access to your bot token!
 
-**Never ever make your bot token public**. Treat it as if it was a password to a valuable account. Also N**EVER give out your Telegram login codes**. 
+**Never ever make your bot token public**. Treat it as if it was a password to a valuable account. Also **NEVER give out your Telegram login codes**. 
 
 Also absolutely make sure to **enable the Telegram Two-Factor Authentication (2FA)** for your account. That way the adversaries don't only need your login code but also a password. This makes it harder for them to access your account.
