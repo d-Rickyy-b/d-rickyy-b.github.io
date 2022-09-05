@@ -26,7 +26,7 @@ Before We Can Continue We Need To Verify That You're A REAL User
 ```
 
 ```
-Please Type the code you've just recieved via SMS In The OnScreen Keyboard Below
+Please Type the code you've just received via SMS In The OnScreen Keyboard Below
 ```
 
 In our case the previously mentioned texts were sent from the bot's account, even when the actual code of the owner of the bot wasn't running.
