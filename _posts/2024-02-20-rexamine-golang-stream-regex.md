@@ -148,7 +148,7 @@ We need access to the underlying data structure in order to extract the exact ma
 
 At the core of rexamine is the RegexReader struct.
 
-```Go
+```go
 type RegexReader struct {
     rd              io.Reader
     buf             []byte
@@ -166,7 +166,7 @@ In this struct we store the source reader, two buffers, the regex pattern, three
 
 There are two constructors defined in the package.
 
-```Go
+```go
 func NewRegexReader(r io.Reader, pattern *regexp.Regexp) *RegexReader
 func NewRegexReaderSize(r io.Reader, pattern *regexp.Regexp, size int) *RegexReader
 ```
@@ -176,13 +176,13 @@ The `NewRegexReaderSize` constructor allows for a configuration of the used buff
 Since we need to implement the `io.RuneReader` interface for the regex package to read from, we'll add a function called ReadRune.
 That function is called by the regex package in order to scan through the stream.
 
-```Go
+```go
 func (m *RegexReader) ReadRune() (r rune, size int, err error)
 ```
 
 Next, there should be functions to start scanning for matches in the stream.
 
-```Go
+```go
 func (m *RegexReader) FindAllMatches() ([]string, error)
 func (m *RegexReader) FindAllMatchesAsync(deliver func(string)) error
 ```
@@ -217,10 +217,10 @@ echo -n "MyData" | dd bs=1 seek=100000 of=sample.txt
 After that we only need to compile the four test binaries.
 
 ```bash
-go build .\cmd\iocopy
-go build .\cmd\iocreadall
-go build .\cmd\rexamine
-go build .\cmd\rexaminewriter
+go build ./cmd/iocopy
+go build ./cmd/iocreadall
+go build ./cmd/rexamine
+go build ./cmd/rexaminewriter
 ```
 
 ### hyperfine
@@ -259,7 +259,7 @@ Since rexamine was specifically developed to decrease the memory footprint, the 
 We can use Go's benchmarking tooling to get data on memory usage.
 
 ```bash
-rexamine> go test -bench=.\pkg\streamregex -benchmem -run=^$ -bench ^Benchmark.+$ -count 5
+rexamine> go test -bench=./pkg/streamregex -benchmem -run=^$ -bench ^Benchmark.+$ -count 5
 cpu: AMD Ryzen 9 7900 12-Core Processor
 BenchmarkIOCopy-24                     1        1618671100 ns/op        268449152 B/op        76 allocs/op
 BenchmarkIOReadAll-24                  1        1570844100 ns/op        615242440 B/op       106 allocs/op
