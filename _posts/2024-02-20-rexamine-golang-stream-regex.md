@@ -25,7 +25,7 @@ The year is 2023, and by that time I already had gathered quite some experience 
 I started _yet another unfinished side project™️_ that involves scanning an arbitrary amount of files (of **arbitrary size**) with a certain regex to extract the found matches and process them later on.
 Usually, to do this, one could write some code like this.
 
-```Go
+```go
 myRegex := regexp.MustCompile(`test`)
 
 // generate a list of all files within a root directory
