@@ -10,8 +10,8 @@ tags: [docker, misc]
 # Introduction
 The best way to host applications on your NAS or VPS is probably Docker. Or to be more precise docker-compose. Basically I use docker-compose to run most of the software I host: My mail server, [uptime-kuma](https://github.com/louislam/uptime-kuma), [overleaf](https://github.com/overleaf/overleaf), [pastepwn](https://github.com/d-Rickyy-b/pastepwn), [Jitsi](https://github.com/jitsi/docker-jitsi-meet) and much more.
 
-For website analytics I use the privacy-friendly tool [plausible](https://plausible.io/). Self-hosted of course. 
-And recently I needed to move data from a docker volume to a local directory. 
+For website analytics I use the privacy-friendly tool [plausible](https://plausible.io/). Self-hosted of course.
+And recently I needed to move data from a docker volume to a local directory.
 Its default `docker-compose.yml` file uses docker volumes like this:
 
 ```yml
@@ -29,7 +29,7 @@ volumes:
     driver: local
 ```
 
-With this config, docker creates a new named volume internally ("db-data"). 
+With this config, docker creates a new named volume internally ("db-data").
 You may now ask what's the bad thing about it?
 Backing up your docker-composed based projects is more complicated, because you need to remember to back up the volume directory as well.
 
@@ -38,6 +38,7 @@ To find the actual volume directory in the file system, we can use the inspect s
 
 There are multiple mount types in docker.
 The three we are interested in for this blog post:
+
 1. Anonymous volumes
 2. Named volumes
 3. Directly mounted directories
@@ -52,12 +53,13 @@ For essential data (that should be contained in a backup) I always use **directl
 That makes creating & restoring your backup a lot easier because you have everything in one place.
 
 ## Steps to move the volume
+
 ### 1. Locate the volume directory
 
 Usually all docker volumes are stored in the `/var/lib/docker/volumes/` directory.
 But you can also find the volumes and corresponding directories with the docker inspect command.
 
-```
+```bash
 $ docker inspect -f "{{ .Mounts }}" <container>
 
 [{volume e0301dce[...]34dda48556 /var/lib/docker/volumes/e0301dce[...]34dda48556/_data /data/configdb local rw true }]
@@ -86,6 +88,7 @@ You can also use paths relative to the `docker-compose.yml` file.
 ```
 
 ### 4. Delete/recreate containers
+
 Now stop and remove the running containers.
 
 `$ docker-compose down`
