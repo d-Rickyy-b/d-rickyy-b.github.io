@@ -97,7 +97,7 @@ I love privacy, so I rather stick to companies such as Mozilla. Performance-wise
 - [Spotify](https://www.spotify.com/) - In case you listen to music on your computer and got a spotify account
 
 ### Security & Safety
-- [Avast](https://www.avast.com/de-de/index) - Free Antivirus Software - alternatively use Windows Defender
+
 - [Authy](https://authy.com/) - 2FA OTP generator - cloud synced and heavily encrypted
 - [Autoruns](https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns) - Check what's running at startup of your computer
 - [Gmer](http://www.gmer.net/) - Rootkit detector
@@ -108,5 +108,3 @@ I love privacy, so I rather stick to companies such as Mozilla. Performance-wise
 - [VeraCrypt](https://www.veracrypt.fr/en/Downloads.html) - Successor of TrueCrypt, a tool to encrypt harddrives and create encrypted containers
 
 Feel free to ping me or create a pull request when you have suggestions for this list.
-
-I will soon add another list similar to this one for the most important browser plugins. Stay tuned!
