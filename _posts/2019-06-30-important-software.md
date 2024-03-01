@@ -26,7 +26,7 @@ It's quite annoying to keep your software up-to-date. Often, you need to open th
 - [VScode](https://code.visualstudio.com/) - A very lightweight IDE by Microsoft, huge extensibility through plugins
 - [GitHub Desktop](https://desktop.github.com/) - A beautiful git client made with the Electron framework
 - [GitKraken](https://www.gitkraken.com/) - Very beautiful git client
-- [DB Browser for SQLite](https://sqlitebrowser.org/) - Powerful tool for managing everysqlite databases
+- [DB Browser for SQLite](https://sqlitebrowser.org/) - Powerful tool for managing sqlite databases
 - [Insomnia](https://insomnia.rest/) - Open Source REST client
 - [Postman](https://www.getpostman.com/) - Closed Source REST client
 
