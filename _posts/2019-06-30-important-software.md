@@ -5,15 +5,15 @@ title:  "The most important software - a collection"
 date:   2019-06-30 22:08:00 +0200
 ---
 
-Have you ever gotten questions about what's the best software for a certain purpose? Well I get these questions all the time and that's the main reason why I thought I should setup a list with my all time favorite software which I use a lot.
+Have you ever gotten questions about what's the best software for a certain purpose? Well, I get these questions all the time, and that's the main reason why I thought I should set up a list with my all-time favorite software, which I use a lot.
 
-Apart from getting asked a lot, there is also another reason why I wrote this post: setting up a new computer or reinstalling the OS on your current computer for whatever reason is quite annoying. The part which annoys me the most is downloading the software you use. In most cases you forget about the one thing you use every now and then and when you need it a few days or weeks later, it's not there.
+Apart from getting asked a lot, there is also another reason why I wrote this post: setting up a new computer or reinstalling the OS on your current computer for whatever reason is quite annoying. The part that annoys me the most is downloading the software I use. In most cases, you forget about the one thing you use occasionally, and when you need it a few days or weeks later, it's not there.
 
-That list is of course not only valid for fresh installations but also for older installations - maybe you find some useful software within this list.
-
+That list is, of course, not only valid for fresh installations but also for older installations - maybe you find some useful software within this list.
 
 ### Software Updates
-It's quite annoying to keep your software up-2-date. Often you need to open the vendor's site, download an `.exe` or `.zip`-archive, run an installer, copy files from here to there, and so on. And since outdated software is a huge security issue, I wondered how to overcome that problem. 
+
+It's quite annoying to keep your software up-to-date. Often, you need to open the vendor's site, download an `.exe` or `.zip`-archive, run an installer, copy files from here to there, and so on. And since outdated software is a huge security issue, I wondered how to overcome that problem.
 
 - [UCheck](https://www.adlice.com/download/ucheck/#download) - A free software updater with a nice GUI
 - [SUMo](https://kcsoftwares.com/index.php?sumo) - **S**oftware **U**pdate **Mo**nitor, another free software update
@@ -47,7 +47,8 @@ It's quite annoying to keep your software up-2-date. Often you need to open the 
 - [Atom](https://atom.io/) - Extensible text editor created by GitHub
 
 ### Internet and mails
-I love privacy so I rather stick to companies such as Mozilla. Performance wise Chrome still often wins, but instead of using Chrome, you might want to try out Brave.
+
+I love privacy, so I rather stick to companies such as Mozilla. Performance-wise, Chrome still often wins, but instead of using Chrome, you might want to try out Brave.
 
 - [Thunderbird](https://www.mozilla.org/de/thunderbird/) - Lightweight Mailclient with familiar design (firefox), extensible via add-ons
 - [Firefox](https://www.mozilla.org/de/firefox/new/) - Very popular Webbrowser
