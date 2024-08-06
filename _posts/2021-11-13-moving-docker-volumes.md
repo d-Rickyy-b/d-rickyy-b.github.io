@@ -59,11 +59,13 @@ That makes creating & restoring your backup a lot easier because you have everyt
 Usually all docker volumes are stored in the `/var/lib/docker/volumes/` directory.
 But you can also find the volumes and corresponding directories with the docker inspect command.
 
+{% raw %}
 ```bash
 $ docker inspect -f "{{ .Mounts }}" <container>
 
 [{volume e0301dce[...]34dda48556 /var/lib/docker/volumes/e0301dce[...]34dda48556/_data /data/configdb local rw true }]
 ```
+{% endraw %}
 
 ### 2. Move data to local directory
 
