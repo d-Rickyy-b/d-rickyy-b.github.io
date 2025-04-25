@@ -7,7 +7,8 @@ category: Misc
 tags: [docker, misc]
 ---
 
-# Introduction
+## Introduction
+
 The best way to host applications on your NAS or VPS is probably Docker. Or to be more precise docker-compose. Basically I use docker-compose to run most of the software I host: My mail server, [uptime-kuma](https://github.com/louislam/uptime-kuma), [overleaf](https://github.com/overleaf/overleaf), [pastepwn](https://github.com/d-Rickyy-b/pastepwn), [Jitsi](https://github.com/jitsi/docker-jitsi-meet) and much more.
 
 For website analytics I use the privacy-friendly tool [plausible](https://plausible.io/). Self-hosted of course.
@@ -61,11 +62,17 @@ But you can also find the volumes and corresponding directories with the docker 
 
 {% raw %}
 ```bash
-$ docker inspect -f "{{ .Mounts }}" <container>
+$ docker inspect -f "{{ .Mounts }}" <container_id>
 
 [{volume e0301dce[...]34dda48556 /var/lib/docker/volumes/e0301dce[...]34dda48556/_data /data/configdb local rw true }]
 ```
 {% endraw %}
+
+In case you want to copy data from the container's read-write layer, you can use the following command:
+
+```bash
+$ docker inspect -f '{{.GraphDriver.Data.MergedDir}}' <container_id>
+```
 
 ### 2. Move data to local directory
 
