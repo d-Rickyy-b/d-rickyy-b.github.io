@@ -73,9 +73,11 @@ $ docker inspect -f "{{ .Mounts }}" <container_id>
 
 In case you want to copy data from the container's read-write layer, you can use the following command:
 
+{% raw %}
 ```bash
 $ docker inspect -f "{{ .GraphDriver.Data.MergedDir }}" <container_id>
 ```
+{% endraw %}
 
 ### 2. Move data to local directory
 
