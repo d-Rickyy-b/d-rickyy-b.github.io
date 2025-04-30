@@ -37,12 +37,13 @@ Backing up your docker-composed based projects is more complicated, because you 
 To find the actual volume directory in the file system, we can use the inspect subcommand of docker:
 `$ docker inspect plausible_db_1`. Under "HostConfig" -> "Binds" we find the imported volumes/paths.
 
-There are multiple mount types in docker.
-The three we are interested in for this blog post:
+There are multiple mount types in Docker.
+The four we are interested in for this blog post are:
 
 1. Anonymous volumes
 2. Named volumes
 3. Directly mounted directories
+4. The read-write layer of the container
 
 **Named volumes** is what we saw in the docker-compose file shown earlier.
 These are mostly used for storing essential data and described in the `docker-compose.yml` file.
@@ -52,6 +53,8 @@ That means they are created automatically, without additional configuration afte
 
 For essential data (that should be contained in a backup) I always use **directly mounted directories** in the same directory as the docker-compose.yml file is located in.
 That makes creating & restoring your backup a lot easier because you have everything in one place.
+
+**The read-write layer of the container** is the directory where all changes to the container made at runtime are stored by default.
 
 ## Steps to move the volume
 
@@ -71,7 +74,7 @@ $ docker inspect -f "{{ .Mounts }}" <container_id>
 In case you want to copy data from the container's read-write layer, you can use the following command:
 
 ```bash
-$ docker inspect -f '{{.GraphDriver.Data.MergedDir}}' <container_id>
+$ docker inspect -f "{{ .GraphDriver.Data.MergedDir }}" <container_id>
 ```
 
 ### 2. Move data to local directory
