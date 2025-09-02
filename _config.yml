@@ -103,11 +103,11 @@ analytics:
 
 # Site Author
 author:
-  name   : "Rico"
-  avatar : "/assets/img/rico.jpg"
-  bio    : "Interested in infosec, malware research and all computer related stuff"
-  location         : "Germany"
-  email  : # optional
+  name: "Rico"
+  avatar: "/assets/img/rico.jpg"
+  bio: "Interested in infosec, malware research and all computer related stuff"
+  location: "Germany"
+  email: # optional
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
