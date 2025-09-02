@@ -234,7 +234,8 @@ accept
 	dport 22 22 # ports are ranges, in this case it's a range of size 1
 ;
 ```
-The above example was (partly) taken from [this gist](https://gist.github.com/adamierymenko/7bcc66b5f7627699236cda8ac13f923b). It's a simple ruleset written in the "Rule Definition Language" developed by ZeroTier.
+
+The above example is an excerpt taken from [this gist](https://gist.github.com/adamierymenko/7bcc66b5f7627699236cda8ac13f923b). It's a simple ruleset written in the "Rule Definition Language" developed by ZeroTier.
 
 All in all the rules engine is a very powerful tool to restrict access even down to single devices. It might not be as capable compared to a stateful firewall in some cases, but it gives more than enough options for basic firewalling or basic network traffic restriction.
 
