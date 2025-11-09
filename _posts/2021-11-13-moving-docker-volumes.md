@@ -7,8 +7,6 @@ category: Misc
 tags: [docker, misc]
 ---
 
-## Introduction
-
 The best way to host applications on your NAS or VPS is probably Docker. Or to be more precise docker-compose. Basically I use docker-compose to run most of the software I host: My mail server, [uptime-kuma](https://github.com/louislam/uptime-kuma), [overleaf](https://github.com/overleaf/overleaf), [pastepwn](https://github.com/d-Rickyy-b/pastepwn), [Jitsi](https://github.com/jitsi/docker-jitsi-meet) and much more.
 
 For website analytics I use the privacy-friendly tool [plausible](https://plausible.io/). Self-hosted of course.
