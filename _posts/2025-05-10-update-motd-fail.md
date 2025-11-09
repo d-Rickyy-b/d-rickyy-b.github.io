@@ -63,9 +63,9 @@ This is done by creating a second SSH connection in the background, which can be
 
 It is a great feature, but it seems to cause the MOTD scripts to run twice in quick succession, leading to the partial display of the message.
 
-Checking the `pam_motd.so` [source code](https://git.launchpad.net/ubuntu/+source/pam/tree/modules/pam_motd/pam_motd.c?h=applied/ubuntu/noble-devel&id=20e541ee83305aa2b46ea10ff15c2401427c5135#n441), it becomes clear where the problem lies.
+Checking the `pam_motd.c` [source code](https://git.launchpad.net/ubuntu/+source/pam/tree/modules/pam_motd/pam_motd.c?h=applied/ubuntu/noble-devel&id=20e541ee83305aa2b46ea10ff15c2401427c5135#n441), it becomes clear where the problem lies.
 
-```C
+```c
 if (do_update && (stat("/etc/update-motd.d", &st) == 0)
     && S_ISDIR(st.st_mode))
 {
